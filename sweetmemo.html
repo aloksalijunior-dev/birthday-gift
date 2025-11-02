@@ -24,10 +24,10 @@
             width: 200px;
             height: 250px;
             background: white;
-            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             overflow: hidden;
             transition: transform 0.3s ease;
+            clip-path: polygon(50% 0%, 0% 25%, 0% 50%, 50% 100%, 100% 50%, 100% 25%); /* Heart shape */
         }
 
         .card:hover {
@@ -38,6 +38,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            clip-path: polygon(50% 0%, 0% 25%, 0% 50%, 50% 100%, 100% 50%, 100% 25%); /* Match heart shape */
         }
 
         /* Centered text */
@@ -60,56 +61,239 @@
             100% { opacity: 1; }
         }
 
-        /* Floating hearts */
+        /* Big heart backgrounds behind */
+        .big-heart-bg-1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 250px;
+            color: rgba(255, 20, 147, 0.05);
+            z-index: -4;
+            pointer-events: none;
+        }
+
+        .big-heart-bg-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px;
+            color: rgba(255, 20, 147, 0.07);
+            z-index: -3;
+            pointer-events: none;
+        }
+
+        .big-heart-bg-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 350px;
+            color: rgba(255, 20, 147, 0.1);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .big-heart-bg-4 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 400px;
+            color: rgba(255, 20, 147, 0.15);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .big-heart-bg-5 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 450px;
+            color: rgba(255, 20, 147, 0.2);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Big bouquet background in the middle */
+        .big-bouquet-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px; /* Large size for background effect */
+            color: rgba(255, 182, 193, 0.3); /* Semi-transparent light pink */
+            z-index: 1; /* Behind text, cards, and floating hearts, but above hearts */
+            pointer-events: none;
+            text-align: center;
+        }
+
+        /* Background pink flowers */
+        .background-flower {
+            position: absolute;
+            font-size: 40px;
+            color: rgba(255, 182, 193, 0.4); /* Semi-transparent pink */
+            z-index: -5; /* Behind everything */
+            pointer-events: none;
+        }
+
+        /* Scattered positions for background flowers */
+        .background-flower:nth-child(1) { top: 10%; left: 10%; }
+        .background-flower:nth-child(2) { top: 15%; left: 80%; }
+        .background-flower:nth-child(3) { top: 25%; left: 30%; }
+        .background-flower:nth-child(4) { top: 35%; left: 70%; }
+        .background-flower:nth-child(5) { top: 45%; left: 5%; }
+        .background-flower:nth-child(6) { top: 55%; left: 85%; }
+        .background-flower:nth-child(7) { top: 65%; left: 25%; }
+        .background-flower:nth-child(8) { top: 75%; left: 60%; }
+        .background-flower:nth-child(9) { top: 85%; left: 40%; }
+        .background-flower:nth-child(10) { top: 5%; left: 50%; }
+        .background-flower:nth-child(11) { top: 20%; left: 15%; }
+        .background-flower:nth-child(12) { top: 30%; left: 90%; }
+        .background-flower:nth-child(13) { top: 40%; left: 35%; }
+        .background-flower:nth-child(14) { top: 50%; left: 75%; }
+        .background-flower:nth-child(15) { top: 60%; left: 10%; }
+        .background-flower:nth-child(16) { top: 70%; left: 85%; }
+        .background-flower:nth-child(17) { top: 80%; left: 20%; }
+        .background-flower:nth-child(18) { top: 90%; left: 55%; }
+        .background-flower:nth-child(19) { top: 12%; left: 65%; }
+        .background-flower:nth-child(20) { top: 28%; left: 45%; }
+        .background-flower:nth-child(21) { top: 38%; left: 80%; }
+        .background-flower:nth-child(22) { top: 48%; left: 15%; }
+        .background-flower:nth-child(23) { top: 58%; left: 70%; }
+        .background-flower:nth-child(24) { top: 68%; left: 5%; }
+        .background-flower:nth-child(25) { top: 78%; left: 90%; }
+        .background-flower:nth-child(26) { top: 88%; left: 30%; }
+        .background-flower:nth-child(27) { top: 8%; left: 75%; }
+        .background-flower:nth-child(28) { top: 18%; left: 40%; }
+        .background-flower:nth-child(29) { top: 32%; left: 60%; }
+        .background-flower:nth-child(30) { top: 42%; left: 25%; }
+
+        /* Floating hearts with pink and red variations */
         .heart {
             position: absolute;
             font-size: 24px;
-            color: #ff69b4; /* Hot pink hearts */
             animation: float 6s linear infinite;
             pointer-events: none;
         }
 
-        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
-        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
-        .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
-        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
+        /* Pink hearts */
+        .heart:nth-child(odd) { color: #ff69b4; } /* Hot pink */
+
+        /* Red hearts */
+        .heart:nth-child(even) { color: #ff0000; } /* Red */
+
+        /* Staggered positions and delays for more hearts */
+        .heart:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 15%; animation-delay: 0.5s; }
+        .heart:nth-child(3) { left: 25%; animation-delay: 1s; }
+        .heart:nth-child(4) { left: 35%; animation-delay: 1.5s; }
+        .heart:nth-child(5) { left: 45%; animation-delay: 2s; }
+        .heart:nth-child(6) { left: 55%; animation-delay: 2.5s; }
+        .heart:nth-child(7) { left: 65%; animation-delay: 3s; }
+        .heart:nth-child(8) { left: 75%; animation-delay: 3.5s; }
+        .heart:nth-child(9) { left: 85%; animation-delay: 4s; }
+        .heart:nth-child(10) { left: 95%; animation-delay: 4.5s; }
+        .heart:nth-child(11) { left: 10%; animation-delay: 5s; }
+        .heart:nth-child(12) { left: 20%; animation-delay: 5.5s; }
+        .heart:nth-child(13) { left: 30%; animation-delay: 6s; }
+        .heart:nth-child(14) { left: 40%; animation-delay: 6.5s; }
+        .heart:nth-child(15) { left: 50%; animation-delay: 7s; }
 
         @keyframes float {
             0% { top: 100vh; opacity: 1; }
             100% { top: -50px; opacity: 0; }
         }
 
-        /* Example irregular positions - adjust or randomize with JS */
-        .card:nth-child(1) { top: 10%; left: 20%; transform: rotate(5deg); }
-        .card:nth-child(2) { top: 30%; left: 60%; transform: rotate(-10deg); }
-        .card:nth-child(3) { top: 50%; left: 10%; transform: rotate(15deg); }
-        .card:nth-child(4) { top: 70%; left: 40%; transform: rotate(20deg); }
-        .card:nth-child(5) { top: 20%; left: 80%; transform: rotate(-5deg); }
+        /* Heart-shaped arrangement for photo cards */
+        .card:nth-child(1) { top: 10%; left: 50%; transform: translate(-50%, -50%) rotate(5deg); } /* Top point */
+        .card:nth-child(2) { top: 20%; left: 40%; transform: translate(-50%, -50%) rotate(-10deg); } /* Left top curve */
+        .card:nth-child(3) { top: 20%; left: 60%; transform: translate(-50%, -50%) rotate(15deg); } /* Right top curve */
+        .card:nth-child(4) { top: 30%; left: 30%; transform: translate(-50%, -50%) rotate(20deg); } /* Left middle */
+        .card:nth-child(5) { top: 30%; left: 70%; transform: translate(-50%, -50%) rotate(-5deg); } /* Right middle */
+        .card:nth-child(6) { top: 40%; left: 20%; transform: translate(-50%, -50%) rotate(10deg); } /* Left bottom */
+        .card:nth-child(7) { top: 40%; left: 80%; transform: translate(-50%, -50%) rotate(-15deg); } /* Right bottom */
+        .card:nth-child(8) { top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(0deg); } /* Bottom point */
     </style>
 </head>
 <body>
-    <!-- Spotify Autoplay Music -->
-<iframe id="spotifyPlayer" style="opacity:0; position:absolute; width:1px; height:1px;"
-src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu?utm_source=generator&autoplay=1"
-frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <!-- Background pink flowers -->
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
+    <div class="background-flower">🌸</div>
 
-<script>
-document.addEventListener("click", function() {
-  const player = document.getElementById("spotifyPlayer");
-  player.src = player.src; // reload to trigger play
-}, { once: true });
-</script>
+    <!-- Big heart backgrounds behind -->
+    <div class="big-heart-bg-1">💖</div>
+    <div class="big-heart-bg-2">💖</div>
+    <div class="big-heart-bg-3">💖</div>
+    <div class="big-heart-bg-4">💖</div>
+    <div class="big-heart-bg-5">💖</div>
+
+    <!-- Big bouquet background -->
+    <div class="big-bouquet-bg">💐</div>
 
     <!-- Centered text -->
     <div class="centered-text">Our Sweet Memories</div>
 
-    <!-- Floating hearts -->
+    <!-- More floating hearts with pink and red -->
     <div class="heart">❤️</div>
     <div class="heart">💖</div>
-    <div class="heart">💕</div>
-    <div class="heart">💗</div>
-    <div class="heart">💓</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
 
     <div class="gallery">
         <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+1" alt="Photo 1"></div>
@@ -117,19 +301,30 @@ document.addEventListener("click", function() {
         <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+3" alt="Photo 3"></div>
         <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+4" alt="Photo 4"></div>
         <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+5" alt="Photo 5"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+6" alt="Photo 6"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+7" alt="Photo 7"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+8" alt="Photo 8"></div>
         <!-- Replace placeholder URLs with your actual photo paths, e.g., photos/photo1.jpg -->
     </div>
 
     <script>
-        // Optional: Randomize positions on load for true irregularity
+        // Optional: Randomize positions on load for true irregularity with more spacing
         document.addEventListener('DOMContentLoaded', () => {
             const cards = document.querySelectorAll('.card');
+            const usedPositions = []; // Track positions to avoid overlaps
+
             cards.forEach(card => {
-                const randomTop = Math.random() * 80 + '%';
-                const randomLeft = Math.random() * 80 + '%';
+                let randomTop, randomLeft, attempts = 0;
+                do {
+                    randomTop = Math.random() * 60 + 10; // 10-70% for more space
+                    randomLeft = Math.random() * 60 + 10; // 10-70% for more space
+                    attempts++;
+                } while (usedPositions.some(pos => Math.abs(pos.top - randomTop) < 20 && Math.abs(pos.left - randomLeft) < 20) && attempts < 50); // Ensure minimum distance
+
+                usedPositions.push({ top: randomTop, left: randomLeft });
                 const randomRotate = (Math.random() - 0.5) * 30;
-                card.style.top = randomTop;
-                card.style.left = randomLeft;
+                card.style.top = randomTop + '%';
+                card.style.left = randomLeft + '%';
                 card.style.transform = `rotate(${randomRotate}deg)`;
             });
         });
