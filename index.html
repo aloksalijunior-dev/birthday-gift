@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Happy Birthday, My Love!</title>
+<title>Happy Birthday, Shai! 💖</title>
 <style>
   /* Body and background */
   body {
@@ -27,34 +27,63 @@
     z-index: 0;
   }
 
-  /* Heart shapes for floating animation */
+  /* Heart shape */
   .heart {
     position: absolute;
-    width: 20px;
-    height: 20px;
     background: #ff8fa3;
     transform: rotate(-45deg);
+    opacity: 0.8;
     animation-name: floatHeart;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    opacity: 0.8;
   }
   .heart::before,
   .heart::after {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
     background: #ff8fa3;
     border-radius: 50%;
   }
   .heart::before {
+    width: 20px;
+    height: 20px;
     top: -10px;
     left: 0;
   }
   .heart::after {
+    width: 20px;
+    height: 20px;
     left: 10px;
     top: 0;
+  }
+
+  /* Sizes for hearts - custom width & height */
+  .heart.small {
+    width: 15px;
+    height: 15px;
+  }
+  .heart.small::before,
+  .heart.small::after {
+    width: 15px;
+    height: 15px;
+  }
+  .heart.medium {
+    width: 20px;
+    height: 20px;
+  }
+  .heart.medium::before,
+  .heart.medium::after {
+    width: 20px;
+    height: 20px;
+  }
+  .heart.large {
+    width: 25px;
+    height: 25px;
+  }
+  .heart.large::before,
+  .heart.large::after {
+    width: 25px;
+    height: 25px;
   }
 
   @keyframes floatHeart {
@@ -101,10 +130,11 @@
   }
 
   .personal-message {
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin: 30px 0;
     color: #a31f4d;
     line-height: 1.5;
+    font-weight: 600;
   }
   
   /* Cute bear images */
@@ -153,16 +183,34 @@
 
   <!-- Floating hearts background -->
   <div class="heart-bg" aria-hidden="true">
-    <div class="heart" style="left: 10%; width: 25px; height: 25px; animation-duration: 14s; animation-delay: 0s;"></div>
-    <div class="heart" style="left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: 2s;"></div>
-    <div class="heart" style="left: 40%; width: 30px; height: 30px; animation-duration: 16s; animation-delay: 4s;"></div>
-    <div class="heart" style="left: 55%; width: 18px; height: 18px; animation-duration: 11s; animation-delay: 3s;"></div>
-    <div class="heart" style="left: 70%; width: 22px; height: 22px; animation-duration: 13s; animation-delay: 6s;"></div>
-    <div class="heart" style="left: 85%; width: 20px; height: 20px; animation-duration: 14s; animation-delay: 1s;"></div>
+    <div class="heart small" style="left: 3%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="heart medium" style="left: 7%; animation-duration: 14s; animation-delay: 3s;"></div>
+    <div class="heart large" style="left: 10%; animation-duration: 16s; animation-delay: 5s;"></div>
+    <div class="heart small" style="left: 14%; animation-duration: 11s; animation-delay: 1s;"></div>
+    <div class="heart medium" style="left: 18%; animation-duration: 15s; animation-delay: 4s;"></div>
+    <div class="heart large" style="left: 21%; animation-duration: 13s; animation-delay: 6s;"></div>
+    <div class="heart small" style="left: 25%; animation-duration: 14s; animation-delay: 2s;"></div>
+    <div class="heart medium" style="left: 29%; animation-duration: 17s; animation-delay: 7s;"></div>
+    <div class="heart medium" style="left: 32%; animation-duration: 16s; animation-delay: 8s;"></div>
+    <div class="heart large" style="left: 37%; animation-duration: 13s; animation-delay: 9s;"></div>
+    <div class="heart small" style="left: 41%; animation-duration: 14s; animation-delay: 5s;"></div>
+    <div class="heart medium" style="left: 46%; animation-duration: 12s; animation-delay: 3s;"></div>
+    <div class="heart large" style="left: 50%; animation-duration: 15s; animation-delay: 0s;"></div>
+    <div class="heart small" style="left: 54%; animation-duration: 11s; animation-delay: 6s;"></div>
+    <div class="heart medium" style="left: 58%; animation-duration: 14s; animation-delay: 4s;"></div>
+    <div class="heart large" style="left: 62%; animation-duration: 13s; animation-delay: 2s;"></div>
+    <div class="heart small" style="left: 67%; animation-duration: 18s; animation-delay: 8s;"></div>
+    <div class="heart medium" style="left: 71%; animation-duration: 14s; animation-delay: 7s;"></div>
+    <div class="heart large" style="left: 74%; animation-duration: 16s; animation-delay: 9s;"></div>
+    <div class="heart small" style="left: 78%; animation-duration: 15s; animation-delay: 1s;"></div>
+    <div class="heart medium" style="left: 84%; animation-duration: 13s; animation-delay: 3s;"></div>
+    <div class="heart large" style="left: 88%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="heart small" style="left: 92%; animation-duration: 14s; animation-delay: 5s;"></div>
+    <div class="heart medium" style="left: 96%; animation-duration: 15s; animation-delay: 6s;"></div>
   </div>
 
   <div class="container" role="main">
-    <h1>Happy Birthday, <span class="heart-inline">My Love! ❤️</span></h1>
+    <h1>Happy Birthday, <span class="heart-inline">Shai! 💖</span></h1>
 
     <p class="quote">"You are my sunshine on the cloudiest days, my forever cuddle bear."</p>
     <p class="quote">"Grow old with me: the best is yet to be." – Robert Browning</p>
@@ -171,18 +219,18 @@
     <p class="quote">"To love and be loved by you is the sweetest gift I could ever ask for."</p>
 
     <div class="personal-message">
-      My darling,<br><br>
-      Today, I celebrate the wonderful person you are and the incredible joy you bring into my life. Your laugh, your kindness, and your beautiful heart make every day special. May this year be full of happiness, sweet moments, and dreams come true — because you deserve all the love and magic in the world.<br><br>
-      With all my love and kisses, <br>
-      <strong>Your [Your Name]</strong>
+      My bae, baby, and my everything,<br><br>
+      Today, we celebrate <strong>you</strong>, beautiful Shaine — my Shai, my heart’s delight.<br>  
+      You fill my days with laughter and my nights with warmth. As your karots, I promise to cherish you forever.<br><br>
+      I love you more than words can say. Happy Birthday, my Shai! 💕
     </div>
 
     <div class="bear-images" aria-label="Cute bears hugging and playing with hearts">
-      <img src="https://i.imgur.com/6DiVuk6.png" alt="Brown and white bears hugging with big pink heart" title="Bear Hug" />
-      <img src="https://i.imgur.com/PjY6rxN.png" alt="Brown bear handing pink heart to white bear" title="Bears with Heart" />
+      <img src="https://i.imgur.com/Z2KsU9W.png" alt="Brown and white bears hugging with pink heart above" title="Bear Hug" />
+      <img src="https://i.imgur.com/eCRpj94.png" alt="Brown bear giving a pink heart to white bear with happy expressions" title="Bears with Heart" />
     </div>
 
-    <footer>Made with ❤️ just for you.</footer>
+    <footer>Made with ❤️ by your karots, Alok.</footer>
   </div>
 
 </body>
