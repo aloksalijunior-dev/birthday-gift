@@ -139,18 +139,24 @@
   }
 
   /* Main container styling - opacity 0.5 */
-  .container {
-    max-width: 800px;
-    margin: 80px auto 60px;
-    padding: 40px 30px;
-    background: rgba(255, 206, 231, 0.5); /* Opacity set to 0.5 */
-    border-radius: 30px;
-    box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
-    position: relative;
-    z-index: 1;
-    backdrop-filter: saturate(180%) blur(12px);
-    text-align: center;
-  }
+.container {
+  max-width: 800px;
+  margin: 80px auto 60px;
+  padding: 40px 30px;
+  background: rgba(255, 206, 231, 0.5); /* container semi-transparent */
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+  position: relative;
+  z-index: 1;
+  backdrop-filter: saturate(180%) blur(12px);
+  text-align: center;
+  /* Do NOT use opacity: 0.5; */
+}
+
+h1, .quote, .personal-message, footer {
+  color: #d6336c; /* fully opaque text color */
+}
+
   
   h1 {
     font-size: 3.5em;
