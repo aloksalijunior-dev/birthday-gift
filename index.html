@@ -337,7 +337,7 @@
   </div>
 
   <!-- Music control button -->
-  <button class="music-control" id="musicBtn" onclick="toggleMusic()">⏸️ Pause Music</button>
+  <button class="music-control" id="musicBtn" onclick="toggleMusic()">🎵</button>
 
   <div class="container" role="main">
     <h1>Happy Birthday, <span class="heart-inline">Shai! 💖</span></h1>
@@ -373,12 +373,12 @@
       player = new YT.Player('player', {
         height: '0',
         width: '0',
-        videoId: 'VIDEO_ID', // Replace with actual YouTube video ID for "My Lady" from Miraculous
+        videoId: 'VIDEO_ID', // Replace with actual YouTube video ID for "My Lady" from Miraculous (e.g., search and get ID)
         playerVars: {
           autoplay: 1,
           loop: 1,
           playlist: 'VIDEO_ID', // Same as videoId for looping
-          mute: 0
+          mute: 1 // Muted for autoplay, button will unmute
         },
         events: {
           'onReady': onPlayerReady
@@ -393,5 +393,4 @@
     function toggleMusic() {
       if (isPlaying) {
         player.pauseVideo();
-        document.getElementById('musicBtn').innerHTML = '▶️ Play Music';
-      }
+        document.getElementById('music
