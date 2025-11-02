@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday, My Love!</title>
+<style>
+  /* Body and background */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ffe6f0;
+    overflow-x: hidden;
+    color: #d6336c;
+    position: relative;
+    min-height: 100vh;
+  }
+
+  /* Floating hearts background container */
+  .heart-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  /* Heart shapes for floating animation */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff8fa3;
+    transform: rotate(-45deg);
+    animation-name: floatHeart;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.8;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff8fa3;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+
+  @keyframes floatHeart {
+    0% {
+      transform: translateY(100vh) rotate(-45deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  /* Main container styling */
+  .container {
+    max-width: 800px;
+    margin: 80px auto 60px;
+    padding: 40px 30px;
+    background: #ffcee7cc;
+    border-radius: 30px;
+    box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: saturate(180%) blur(12px);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    font-weight: 800;
+    color: #d6336c;
+  }
+  .heart-inline {
+    color: #ff5c8d;
+  }
+  
+  .quote {
+    font-style: italic;
+    font-size: 1.5em;
+    margin: 25px 0 25px 0;
+    line-height: 1.3;
+    color: #b32358;
+  }
+
+  .personal-message {
+    font-size: 1.2em;
+    margin: 30px 0;
+    color: #a31f4d;
+    line-height: 1.5;
+  }
+  
+  /* Cute bear images */
+  .bear-images {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  .bear-images img {
+    max-width: 220px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.3);
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  .bear-images img:hover {
+    transform: scale(1.08);
+  }
+
+  footer {
+    margin-top: 60px;
+    font-size: 1.3em;
+    color: #d6336c;
+    font-weight: 600;
+  }
+  @media (max-width: 500px) {
+    .container {
+      margin: 40px 20px 40px;
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 2.8em;
+    }
+    .quote {
+      font-size: 1.2em;
+    }
+    .bear-images img {
+      max-width: 140px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Floating hearts background -->
+  <div class="heart-bg" aria-hidden="true">
+    <div class="heart" style="left: 10%; width: 25px; height: 25px; animation-duration: 14s; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 25%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 40%; width: 30px; height: 30px; animation-duration: 16s; animation-delay: 4s;"></div>
+    <div class="heart" style="left: 55%; width: 18px; height: 18px; animation-duration: 11s; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 70%; width: 22px; height: 22px; animation-duration: 13s; animation-delay: 6s;"></div>
+    <div class="heart" style="left: 85%; width: 20px; height: 20px; animation-duration: 14s; animation-delay: 1s;"></div>
+  </div>
+
+  <div class="container" role="main">
+    <h1>Happy Birthday, <span class="heart-inline">My Love! ❤️</span></h1>
+
+    <p class="quote">"You are my sunshine on the cloudiest days, my forever cuddle bear."</p>
+    <p class="quote">"Grow old with me: the best is yet to be." – Robert Browning</p>
+    <p class="quote">"Every moment with you is a treasure I hold dear."</p>
+    <p class="quote">"Your smile lights up my world brighter than the stars."</p>
+    <p class="quote">"To love and be loved by you is the sweetest gift I could ever ask for."</p>
+
+    <div class="personal-message">
+      My darling,<br><br>
+      Today, I celebrate the wonderful person you are and the incredible joy you bring into my life. Your laugh, your kindness, and your beautiful heart make every day special. May this year be full of happiness, sweet moments, and dreams come true — because you deserve all the love and magic in the world.<br><br>
+      With all my love and kisses, <br>
+      <strong>Your [Your Name]</strong>
+    </div>
+
+    <div class="bear-images" aria-label="Cute bears hugging and playing with hearts">
+      <img src="https://i.imgur.com/6DiVuk6.png" alt="Brown and white bears hugging with big pink heart" title="Bear Hug" />
+      <img src="https://i.imgur.com/PjY6rxN.png" alt="Brown bear handing pink heart to white bear" title="Bears with Heart" />
+    </div>
+
+    <footer>Made with ❤️ just for you.</footer>
+  </div>
+
+</body>
+</html>
