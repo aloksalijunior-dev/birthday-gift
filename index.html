@@ -252,8 +252,8 @@
 </head>
 <body>
 
-  <!-- Background music player -->
-  <div id="player"></div>
+  <!-- Background music player - Spotify embed -->
+  <iframe src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu" width="0" height="0" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="position: absolute; top: -9999px; left: -9999px;"></iframe>
 
   <!-- Background photo cards - more added -->
   <div class="bg-photos" aria-hidden="true">
@@ -337,7 +337,7 @@
   </div>
 
   <!-- Music control button -->
-  <button class="music-control" id="musicBtn" onclick="toggleMusic()">🎵</button>
+  <button class="music-control" id="musicBtn" onclick="toggleMusic()">▶️</button>
 
   <div class="container" role="main">
     <h1>Happy Birthday, <span class="heart-inline">Shai! 💖</span></h1>
@@ -363,34 +363,15 @@
     <footer>Made with ❤️ by your karots, Alok.</footer>
   </div>
 
-  <!-- YouTube Player API Script -->
-  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- Simple script for button toggle (Spotify embed doesn't support direct control, so this simulates play/pause) -->
   <script>
-    var player;
-    var isPlaying = true;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '0',
-        width: '0',
-        videoId: 'VIDEO_ID', // Replace with actual YouTube video ID for "My Lady" from Miraculous (e.g., search and get ID)
-        playerVars: {
-          autoplay: 1,
-          loop: 1,
-          playlist: 'VIDEO_ID', // Same as videoId for looping
-          mute: 1 // Muted for autoplay, button will unmute
-        },
-        events: {
-          'onReady': onPlayerReady
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
+    var isPlaying = false;
 
     function toggleMusic() {
       if (isPlaying) {
-        player.pauseVideo();
-        document.getElementById('musicBtn').innerHTML = '▶
+        // Pause: Hide the iframe (simulates pause since Spotify embed doesn't have direct pause API)
+        document.querySelector('iframe').style.display = 'none';
+        document.getElementById('musicBtn').innerHTML = '▶️';
+      } else {
+        // Play: Show the iframe
+        document.query
