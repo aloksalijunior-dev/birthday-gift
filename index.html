@@ -1,396 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Happy Birthday, Shai! 💖</title>
-<style>
-  /* Body and background */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #ffe6f0;
-    overflow-x: hidden;
-    color: #d6336c;
-    position: relative;
-    min-height: 100vh;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irregular Photo Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #ffb6c1; /* Light pink background */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars from floating hearts */
+        }
 
-  /* Floating hearts background container */
-  .heart-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-  }
+        .gallery {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-  /* Heart shape */
-  .heart {
-    position: absolute;
-    background: #ff8fa3; /* Default pink */
-    transform: rotate(-45deg);
-    opacity: 0.8;
-    animation-name: floatHeart;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  .heart::before,
-  .heart::after {
-    content: "";
-    position: absolute;
-    background: #ff8fa3; /* Default pink */
-    border-radius: 50%;
-  }
-  .heart::before {
-    width: 20px;
-    height: 20px;
-    top: -10px;
-    left: 0;
-  }
-  .heart::after {
-    width: 20px;
-    height: 20px;
-    left: 10px;
-    top: 0;
-  }
+        .card {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
 
-  /* Red hearts variant */
-  .heart.red {
-    background: #e74c3c;
-  }
-  .heart.red::before,
-  .heart.red::after {
-    background: #e74c3c;
-  }
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-  /* Sizes for hearts - custom width & height */
-  .heart.small {
-    width: 15px;
-    height: 15px;
-  }
-  .heart.small::before,
-  .heart.small::after {
-    width: 15px;
-    height: 15px;
-  }
-  .heart.medium {
-    width: 20px;
-    height: 20px;
-  }
-  .heart.medium::before,
-  .heart.medium::after {
-    width: 20px;
-    height: 20px;
-  }
-  .heart.large {
-    width: 25px;
-    height: 25px;
-  }
-  .heart.large::before,
-  .heart.large::after {
-    width: 25px;
-    height: 25px;
-  }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-  @keyframes floatHeart {
-    0% {
-      transform: translateY(100vh) rotate(-45deg);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateY(-10vh) rotate(-45deg);
-      opacity: 0;
-    }
-  }
+        /* Centered text */
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff1493; /* Deep pink */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 10; /* Above cards and hearts */
+            animation: fadeIn 2s ease-in-out;
+        }
 
-  /* Background photo cards */
-  .bg-photos {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1; /* Behind hearts and content */
-  }
-  .bg-photo-card {
-    position: absolute;
-    background: #fff0f6;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.2);
-    padding: 8px;
-    opacity: 0.7;
-    transform-origin: center;
-  }
-  .bg-photo-card img {
-    width: 100%;
-    max-width: 80px;
-    border-radius: 10px;
-    display: block;
-  }
-  .bg-photo-card p {
-    margin: 5px 0 0 0;
-    font-size: 0.8em;
-    font-weight: 600;
-    color: #c21861;
-    text-align: center;
-  }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
 
-  /* Main container styling - opacity 0.5 */
-  .container {
-    max-width: 800px;
-    margin: 80px auto 60px;
-    padding: 40px 30px;
-    background: rgba(255, 206, 231, 0.5); /* Opacity set to 0.5 */
-    border-radius: 30px;
-    box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
-    position: relative;
-    z-index: 1;
-    backdrop-filter: saturate(180%) blur(12px);
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
-    font-weight: 800;
-    color: #d6336c;
-  }
-  .heart-inline {
-    color: #ff5c8d;
-  }
-  
-  .quote {
-    font-style: italic;
-    font-size: 1.5em;
-    margin: 25px 0 25px 0;
-    line-height: 1.3;
-    color: #b32358;
-  }
+        /* Big heart background in the middle */
+        .big-heart-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 300px; /* Large size for background effect */
+            color: rgba(255, 105, 180, 0.2); /* Semi-transparent hot pink */
+            z-index: 1; /* Behind text, cards, and floating hearts */
+            pointer-events: none;
+        }
 
-  .personal-message {
-    font-size: 1.3em;
-    margin: 30px 0;
-    color: #a31f4d;
-    line-height: 1.5;
-    font-weight: 600;
-  }
-  
-  /* Cute bear images */
-  .bear-images {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-  .bear-images img {
-    max-width: 220px;
-    border-radius: 25px;
-    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.3);
-    transition: transform 0.3s ease;
-    cursor: default;
-  }
-  .bear-images img:hover {
-    transform: scale(1.08);
-  }
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff69b4; /* Hot pink hearts */
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
 
-  /* Spotify embed styling */
-  .spotify-embed {
-    margin: 20px auto;
-    max-width: 300px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
-    /* Visible by default */
-  }
+        /* Staggered positions and delays for more hearts */
+        .heart:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 15%; animation-delay: 0.5s; }
+        .heart:nth-child(3) { left: 25%; animation-delay: 1s; }
+        .heart:nth-child(4) { left: 35%; animation-delay: 1.5s; }
+        .heart:nth-child(5) { left: 45%; animation-delay: 2s; }
+        .heart:nth-child(6) { left: 55%; animation-delay: 2.5s; }
+        .heart:nth-child(7) { left: 65%; animation-delay: 3s; }
+        .heart:nth-child(8) { left: 75%; animation-delay: 3.5s; }
+        .heart:nth-child(9) { left: 85%; animation-delay: 4s; }
+        .heart:nth-child(10) { left: 95%; animation-delay: 4.5s; }
+        .heart:nth-child(11) { left: 10%; animation-delay: 5s; }
+        .heart:nth-child(12) { left: 20%; animation-delay: 5.5s; }
+        .heart:nth-child(13) { left: 30%; animation-delay: 6s; }
+        .heart:nth-child(14) { left: 40%; animation-delay: 6.5s; }
+        .heart:nth-child(15) { left: 50%; animation-delay: 7s; }
 
-  /* Music control button */
-  .music-control {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
-    background: #ff8fa3;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
-    transition: background 0.3s ease;
-  }
-  .music-control:hover {
-    background: #ff5c8d;
-  }
+        @keyframes float {
+            0% { top: 100vh; opacity: 1; }
+            100% { top: -50px; opacity: 0; }
+        }
 
-  footer {
-    margin-top: 60px;
-    font-size: 1.3em;
-    color: #d6336c;
-    font-weight: 600;
-  }
-  @media (max-width: 500px) {
-    .container {
-      margin: 40px 20px 40px;
-      padding: 30px 20px;
-    }
-    h1 {
-      font-size: 2.8em;
-    }
-    .quote {
-      font-size: 1.2em;
-    }
-    .bear-images img {
-      max-width: 140px;
-    }
-    .bg-photo-card img {
-      max-width: 60px;
-    }
-    .spotify-embed {
-      max-width: 250px;
-    }
-    .music-control {
-      bottom: 10px;
-      right: 10px;
-      padding: 8px 16px;
-      font-size: 1em;
-    }
-  }
-</style>
+        /* Example irregular positions - adjust or randomize with JS */
+        .card:nth-child(1) { top: 10%; left: 20%; transform: rotate(5deg); }
+        .card:nth-child(2) { top: 30%; left: 60%; transform: rotate(-10deg); }
+        .card:nth-child(3) { top: 50%; left: 10%; transform: rotate(15deg); }
+        .card:nth-child(4) { top: 70%; left: 40%; transform: rotate(20deg); }
+        .card:nth-child(5) { top: 20%; left: 80%; transform: rotate(-5deg); }
+    </style>
 </head>
 <body>
-<!-- Spotify Autoplay Music -->
-<iframe id="spotifyPlayer" style="opacity:0; position:absolute; width:1px; height:1px;"
-src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu?utm_source=generator&autoplay=1"
-frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <!-- Big heart background -->
+    <div class="big-heart-bg">💖</div>
 
-<script>
-document.addEventListener("click", function() {
-  const player = document.getElementById("spotifyPlayer");
-  player.src = player.src; // reload to trigger play
-}, { once: true });
-</script>
+    <!-- Centered text -->
+    <div class="centered-text">Our Sweet Memories</div>
 
-  <!-- Background photo cards - more added -->
-  <div class="bg-photos" aria-hidden="true">
-    <div class="bg-photo-card" style="top: 10%; left: 5%; transform: rotate(-5deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+1" alt="Shaine Photo 1" />
-      <p>💕</p>
-    </div>
-    <div class="bg-photo-card" style="top: 20%; left: 85%; transform: rotate(10deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+2" alt="Shaine Photo 2" />
-      <p>😘</p>
-    </div>
-    <div class="bg-photo-card" style="top: 40%; left: 15%; transform: rotate(-15deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+3" alt="Shaine Photo 3" />
-      <p>❤️</p>
-    </div>
-    <div class="bg-photo-card" style="top: 60%; left: 70%; transform: rotate(5deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+4" alt="Shaine Photo 4" />
-      <p>🌸</p>
-    </div>
-    <div class="bg-photo-card" style="top: 75%; left: 30%; transform: rotate(-10deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+5" alt="Shaine Photo 5" />
-      <p>🥰</p>
-    </div>
-    <div class="bg-photo-card" style="top: 85%; left: 50%; transform: rotate(12deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+6" alt="Shaine Photo 6" />
-      <p>💖</p>
-    </div>
-    <!-- New added photo cards -->
-    <div class="bg-photo-card" style="top: 5%; left: 40%; transform: rotate(8deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+7" alt="Shaine Photo 7" />
-      <p>😍</p>
-    </div>
-    <div class="bg-photo-card" style="top: 30%; left: 90%; transform: rotate(-8deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+8" alt="Shaine Photo 8" />
-      <p>💋</p>
-    </div>
-    <div class="bg-photo-card" style="top: 50%; left: 2%; transform: rotate(15deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+9" alt="Shaine Photo 9" />
-      <p>🌹</p>
-    </div>
-    <div class="bg-photo-card" style="top: 65%; left: 45%; transform: rotate(-12deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+10" alt="Shaine Photo 10" />
-      <p>😊</p>
-    </div>
-    <div class="bg-photo-card" style="top: 90%; left: 20%; transform: rotate(6deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+11" alt="Shaine Photo 11" />
-      <p>💘</p>
-    </div>
-    <div class="bg-photo-card" style="top: 25%; left: 60%; transform: rotate(-6deg);">
-      <img src="https://via.placeholder.com/80x100?text=Shai+Pic+12" alt="Shaine Photo 12" />
-      <p>🌟</p>
-    </div>
-  </div>
+    <!-- More floating hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
 
-  <!-- Floating hearts background -->
-  <div class="heart-bg" aria-hidden="true">
-    <div class="heart small red" style="left: 3%; animation-duration: 12s; animation-delay: 0s;"></div>
-    <div class="heart medium" style="left: 7%; animation-duration: 14s; animation-delay: 3s;"></div>
-    <div class="heart large red" style="left: 10%; animation-duration: 16s; animation-delay: 5s;"></div>
-    <div class="heart small" style="left: 14%; animation-duration: 11s; animation-delay: 1s;"></div>
-    <div class="heart medium red" style="left: 18%; animation-duration: 15s; animation-delay: 4s;"></div>
-    <div class="heart large" style="left: 21%; animation-duration: 13s; animation-delay: 6s;"></div>
-    <div class="heart small red" style="left: 25%; animation-duration: 14s; animation-delay: 2s;"></div>
-    <div class="heart medium" style="left: 29%; animation-duration: 17s; animation-delay: 7s;"></div>
-    <div class="heart medium red" style="left: 32%; animation-duration: 16s; animation-delay: 8s;"></div>
-    <div class="heart large" style="left: 37%; animation-duration: 13s; animation-delay: 9s;"></div>
-    <div class="heart small red" style="left: 41%; animation-duration: 14s; animation-delay: 5s;"></div>
-    <div class="heart medium" style="left: 46%; animation-duration: 12s; animation-delay: 3s;"></div>
-    <div class="heart large red" style="left: 50%; animation-duration: 15s; animation-delay: 0s;"></div>
-    <div class="heart small" style="left: 54%; animation-duration: 11s; animation-delay: 6s;"></div>
-    <div class="heart medium red" style="left: 58%; animation-duration: 14s; animation-delay: 4s;"></div>
-    <div class="heart large" style="left: 62%; animation-duration: 13s; animation-delay: 2s;"></div>
-    <div class="heart small red" style="left: 67%; animation-duration: 18s; animation-delay: 8s;"></div>
-    <div class="heart medium" style="left: 71%; animation-duration: 14s; animation-delay: 7s;"></div>
-    <div class="heart large red" style="left: 74%; animation-duration: 16s; animation-delay: 9s;"></div>
-    <div class="heart small" style="left: 78%; animation-duration: 15s; animation-delay: 1s;"></div>
-    <div class="heart medium red" style="left: 84%; animation-duration: 13s; animation-delay: 3s;"></div>
-    <div class="heart large" style="left: 88%; animation-duration: 12s; animation-delay: 0s;"></div>
-    <div class="heart small red" style="left: 92%; animation-duration: 14s; animation-delay: 5s;"></div>
-    <div class="heart medium" style="left: 96%; animation-duration: 15s; animation-delay: 6s;"></div>
-  </div>
-
-  <!-- Music control button -->
-  <button class="music-control" id="musicBtn" onclick="toggleMusic()">⏸️</button>
-
-  <div class="container" role="main">
-    <h1>Happy Birthday, <span class="heart-inline">Shai! 💖</span></h1>
-
-    <p class="quote">"You are my sunshine on the cloudiest days, my forever cuddle bear."</p>
-    <p class="quote">"Grow old with me: the best is yet to be." – Robert Browning</p>
-    <p class="quote">"Every moment with you is a treasure I hold dear."</p>
-    <p class="quote">"Your smile lights up my world brighter than the stars."</p>
-    <p class="quote">"To love and be loved by you is the sweetest gift I could ever ask for."</p>
-
-    <div class="personal-message">
-      My bae, baby, and my everything,<br><br>
-      Today, we celebrate <strong>you</strong>, beautiful Shaine — my Shai, my heart’s delight.<br>  
-      You fill my days with laughter and my nights with warmth. As your karots, I promise to cherish you forever.<br><br>
-      I love you more than words can say. Happy Birthday, my Shai! 💕
+    <div class="gallery">
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+1" alt="Photo 1"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+2" alt="Photo 2"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+3" alt="Photo 3"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+4" alt="Photo 4"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+5" alt="Photo 5"></div>
+        <!-- Replace placeholder URLs with your actual photo paths, e.g., photos/photo1.jpg -->
     </div>
 
-    <!-- Spotify embed - visible in the page -->
-    <div class="spotify-embed" id="spotifyEmbed">
-      <iframe src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu" width="100%" height="152" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
+    <script>
+        // Optional: Randomize positions on load for true irregularity with more spacing
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            const usedPositions = []; // Track positions to avoid overlaps
 
-    <div class="bear-images" aria-label="Cute bears hugging and playing with hearts">
-      <img src="https://i.imgur.com/Z2KsU9W.png" alt="Brown and white bears hugging with pink heart above" title="Bear Hug" />
-      <img src="https://i.imgur.com/eCRpj94.png" alt="Brown bear giving a pink heart to white bear with happy expressions" title="Bears with Heart" />
-    </div>
+            cards.forEach(card => {
+                let randomTop, randomLeft, attempts = 0;
+                do {
+                    randomTop = Math.random() * 60 + 10; // 10-70% for more space
+                    randomLeft = Math.random() * 60 + 10; // 10-70% for more space
+                    attempts++;
+                } while (usedPositions.some(pos => Math.abs(pos.top - randomTop) < 20 && Math.abs(pos.left - randomLeft) < 20) && attempts < 50); // Ensure minimum distance
 
-    <footer>Made with ❤️ by your karots, Alok.</footer>
-  </div>
-
-  <!-- Simple script for button toggle -->
-  <script>
-    function toggleMusic() {
-      var embed = document.getElementById('spotifyEmbed');
-      var btn = document.getElementById('musicBtn');
+                usedPositions.push({ top: randomTop, left: randomLeft });
+                const randomRotate = (Math.random() - 0.5) * 30;
+                card.style.top = randomTop + '%';
+                card.style.left = randomLeft + '%';
+                card.style.transform = `rotate(${randomRotate}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
