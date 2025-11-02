@@ -89,6 +89,18 @@
     </style>
 </head>
 <body>
+    <!-- Spotify Autoplay Music -->
+<iframe id="spotifyPlayer" style="opacity:0; position:absolute; width:1px; height:1px;"
+src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu?utm_source=generator&autoplay=1"
+frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+<script>
+document.addEventListener("click", function() {
+  const player = document.getElementById("spotifyPlayer");
+  player.src = player.src; // reload to trigger play
+}, { once: true });
+</script>
+
     <!-- Centered text -->
     <div class="centered-text">Our Sweet Memories</div>
 
