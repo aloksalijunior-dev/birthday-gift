@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irregular Photo Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #ffb6c1; /* Light pink background */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrollbars from floating hearts */
+        }
+
+        .gallery {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .card {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Centered text */
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff1493; /* Deep pink */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 10; /* Above cards and hearts */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff69b4; /* Hot pink hearts */
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+        @keyframes float {
+            0% { top: 100vh; opacity: 1; }
+            100% { top: -50px; opacity: 0; }
+        }
+
+        /* Example irregular positions - adjust or randomize with JS */
+        .card:nth-child(1) { top: 10%; left: 20%; transform: rotate(5deg); }
+        .card:nth-child(2) { top: 30%; left: 60%; transform: rotate(-10deg); }
+        .card:nth-child(3) { top: 50%; left: 10%; transform: rotate(15deg); }
+        .card:nth-child(4) { top: 70%; left: 40%; transform: rotate(20deg); }
+        .card:nth-child(5) { top: 20%; left: 80%; transform: rotate(-5deg); }
+    </style>
+</head>
+<body>
+    <!-- Centered text -->
+    <div class="centered-text">Our Sweet Memories</div>
+
+    <!-- Floating hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+
+    <div class="gallery">
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+1" alt="Photo 1"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+2" alt="Photo 2"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+3" alt="Photo 3"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+4" alt="Photo 4"></div>
+        <div class="card"><img src="https://via.placeholder.com/200x250?text=Photo+5" alt="Photo 5"></div>
+        <!-- Replace placeholder URLs with your actual photo paths, e.g., photos/photo1.jpg -->
+    </div>
+
+    <script>
+        // Optional: Randomize positions on load for true irregularity
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const randomTop = Math.random() * 80 + '%';
+                const randomLeft = Math.random() * 80 + '%';
+                const randomRotate = (Math.random() - 0.5) * 30;
+                card.style.top = randomTop;
+                card.style.left = randomLeft;
+                card.style.transform = `rotate(${randomRotate}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
