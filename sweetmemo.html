@@ -55,6 +55,18 @@
     clip-path: inherit;
   }
 
+  /* Center image (larger heart in middle) */
+  .center-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+  }
+
   .bg-heart {
     position: absolute;
     font-size: 480px;
@@ -72,7 +84,10 @@
   <h1>Our Sweet Memories</h1>
   <div class="collage" id="collage">
     <div class="bg-heart">💖</div>
-    <!-- images will be placed here -->
+    <!-- Center heart image -->
+    <div class="card center-card">
+      <img src="your-center-image.png" alt="Center Image"> <!-- Replace with your image path -->
+    </div>
   </div>
 
   <script>
