@@ -17,6 +17,7 @@
     min-height: 100vh;
   }
 
+  /* Floating hearts background container */
   .heart-bg {
     position: fixed;
     top: 0; left: 0;
@@ -26,9 +27,10 @@
     z-index: 0;
   }
 
+  /* Heart shape */
   .heart {
     position: absolute;
-    background: #ff8fa3;
+    background: #ff8fa3; /* Default pink */
     transform: rotate(-45deg);
     opacity: 0.8;
     animation-name: floatHeart;
@@ -39,41 +41,85 @@
   .heart::after {
     content: "";
     position: absolute;
-    background: #ff8fa3;
+    background: #ff8fa3; /* Default pink */
     border-radius: 50%;
   }
-  .heart::before { width: 20px; height: 20px; top: -10px; left: 0; }
-  .heart::after { width: 20px; height: 20px; left: 10px; top: 0; }
-
-  .heart.red { background: #e74c3c; }
-  .heart.red::before, .heart.red::after { background: #e74c3c; }
-
-  .heart.small { width: 15px; height: 15px; }
-  .heart.small::before, .heart.small::after { width: 15px; height: 15px; }
-  .heart.medium { width: 20px; height: 20px; }
-  .heart.medium::before, .heart.medium::after { width: 20px; height: 20px; }
-  .heart.large { width: 25px; height: 25px; }
-  .heart.large::before, .heart.large::after { width: 25px; height: 25px; }
-
-  @keyframes floatHeart {
-    0% { transform: translateY(100vh) rotate(-45deg); opacity: 0.8; }
-    100% { transform: translateY(-10vh) rotate(-45deg); opacity: 0; }
+  .heart::before {
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 0;
+  }
+  .heart::after {
+    width: 20px;
+    height: 20px;
+    left: 10px;
+    top: 0;
   }
 
+  /* Red hearts variant */
+  .heart.red {
+    background: #e74c3c;
+  }
+  .heart.red::before,
+  .heart.red::after {
+    background: #e74c3c;
+  }
+
+  /* Sizes for hearts - custom width & height */
+  .heart.small {
+    width: 15px;
+    height: 15px;
+  }
+  .heart.small::before,
+  .heart.small::after {
+    width: 15px;
+    height: 15px;
+  }
+  .heart.medium {
+    width: 20px;
+    height: 20px;
+  }
+  .heart.medium::before,
+  .heart.medium::after {
+    width: 20px;
+    height: 20px;
+  }
+  .heart.large {
+    width: 25px;
+    height: 25px;
+  }
+  .heart.large::before,
+  .heart.large::after {
+    width: 25px;
+    height: 25px;
+  }
+
+  @keyframes floatHeart {
+    0% {
+      transform: translateY(100vh) rotate(-45deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+
+  /* Background photo cards */
   .bg-photos {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     pointer-events: none;
     overflow: hidden;
-    z-index: -1;
+    z-index: -1; /* Behind hearts and content */
   }
-
   .bg-photo-card {
     position: absolute;
     background: #fff0f6;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(214,51,108,0.2);
+    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.2);
     padding: 8px;
     opacity: 0.7;
     transform-origin: center;
@@ -82,34 +128,45 @@
     width: 100%;
     max-width: 80px;
     border-radius: 10px;
+    display: block;
   }
-  .bg-photo-card p { margin: 5px 0; font-size: 0.8em; font-weight: 600; color: #c21861; text-align: center; }
+  .bg-photo-card p {
+    margin: 5px 0 0 0;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: #c21861;
+    text-align: center;
+  }
 
+  /* Main container styling - opacity 0.5 */
   .container {
     max-width: 800px;
     margin: 80px auto 60px;
     padding: 40px 30px;
-    background: rgba(255, 206, 231, 0.5);
+    background: rgba(255, 206, 231, 0.5); /* Opacity set to 0.5 */
     border-radius: 30px;
-    box-shadow: 0 10px 20px rgba(214,51,108,0.35);
-    backdrop-filter: saturate(180%) blur(12px);
-    text-align: center;
+    box-shadow: 0 10px 20px rgba(214, 51, 108, 0.35);
     position: relative;
     z-index: 1;
-    opacity: 0.5;
+    backdrop-filter: saturate(180%) blur(12px);
+    text-align: center;
+    opacity:0.5;
   }
-
+  
   h1 {
     font-size: 3.5em;
     margin-bottom: 10px;
     font-weight: 800;
     color: #d6336c;
   }
-
+  .heart-inline {
+    color: #ff5c8d;
+  }
+  
   .quote {
     font-style: italic;
     font-size: 1.5em;
-    margin: 25px 0;
+    margin: 25px 0 25px 0;
     line-height: 1.3;
     color: #b32358;
   }
@@ -121,26 +178,37 @@
     line-height: 1.5;
     font-weight: 600;
   }
-
+  
+  /* Cute bear images */
   .bear-images {
     display: flex;
-    justify-content:center;
-    margin-top:30px;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
   }
   .bear-images img {
     max-width: 440px;
     border-radius: 25px;
-    box-shadow: 0 8px 20px rgba(214,51,108,0.3);
+    box-shadow: 0 8px 20px rgba(214, 51, 108, 0.3);
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  .bear-images img:hover {
+    transform: scale(1.08);
   }
 
+  /* Spotify embed styling */
   .spotify-embed {
     margin: 20px auto;
     max-width: 300px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(214,51,108,0.3);
+    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
+    /* Visible by default */
   }
 
+  /* Music control button */
   .music-control {
     position: fixed;
     bottom: 20px;
@@ -154,117 +222,195 @@
     font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(214,51,108,0.3);
+    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
+    transition: background 0.3s ease;
+  }
+  .music-control:hover {
+    background: #ff5c8d;
   }
 
-  footer { margin-top: 60px; font-size: 1.3em; color: #d6336c; font-weight: 600; }
-
+  footer {
+    margin-top: 60px;
+    font-size: 1.3em;
+    color: #d6336c;
+    font-weight: 600;
+  }
+  @media (max-width: 500px) {
+    .container {
+      margin: 40px 20px 40px;
+      padding: 30px 20px;
+    }
+    h1 {
+      font-size: 2.8em;
+    }
+    .quote {
+      font-size: 1.2em;
+    }
+    .bear-images img {
+      max-width: 140px;
+    }
+    .bg-photo-card img {
+      max-width: 60px;
+    }
+    .spotify-embed {
+      max-width: 250px;
+    }
+    .music-control {
+      bottom: 10px;
+      right: 10px;
+      padding: 8px 16px;
+      font-size: 1em;
+    }
+  }
 </style>
 </head>
 <body>
-
-<div class="bg-photos">
-  <div class="bg-photo-card" style="top: 10%; left: 5%;"><img src="1.jpeg"><p>💕</p></div>
-  <div class="bg-photo-card" style="top: 20%; left: 85%;"><img src="2.jpeg"><p>😘</p></div>
-  <div class="bg-photo-card" style="top: 40%; left: 15%;"><img src="3.jpeg"><p>❤️</p></div>
-  <div class="bg-photo-card" style="top: 60%; left: 70%;"><img src="4.jpeg"><p>🌸</p></div>
-  <div class="bg-photo-card" style="top: 75%; left: 30%;"><img src="5.jpeg"><p>🥰</p></div>
-  <div class="bg-photo-card" style="top: 85%; left: 50%;"><img src="6.jpeg"><p>💖</p></div>
-  <div class="bg-photo-card" style="top: 5%; left: 40%;"><img src="7.jpeg"><p>😍</p></div>
-  <div class="bg-photo-card" style="top: 30%; left: 90%;"><img src="8.jpeg"><p>💋</p></div>
-  <div class="bg-photo-card" style="top: 50%; left: 2%;"><img src="9.jpeg"><p>🌹</p></div>
-</div>
-
-<!-- Floating Hearts -->
-<div class="heart-bg">
-  <div class="heart small red" style="left: 3%; animation-duration: 12s;"></div>
-  <div class="heart medium" style="left: 7%; animation-duration: 14s; animation-delay: 3s;"></div>
-  <div class="heart large red" style="left: 10%; animation-duration: 16s; animation-delay: 5s;"></div>
-  <!-- ... keep hearts list same ... -->
-</div>
-
-<!-- Music Button -->
-<button class="music-control" id="musicBtn" onclick="toggleMusic()">⏸️</button>
-
-<div class="container">
-  <h1>Happy Birthday, Shai! 💖</h1>
-
-  <p class="quote">"You are my sunshine on the cloudiest days, my forever Cutie Patotie."</p>
-  <p class="quote">"Grow old with me: the best is yet to be."</p>
-  <p class="quote">"Every moment with you is a treasure I hold bae."</p>
-  <p class="quote">"Your smile lights up my world brighter than the stars."</p>
-  <p class="quote">"To love and be loved by you is the sweetest gift I could ever ask for."</p>
-
-  <div class="personal-message">
-    My bae, baby, and my everything,<br><br>
-    Today, is yourr <strong>First birthdayy with mee</strong>, My Wifeyy — my Shai.<br>  
-    You fill my days with laughter and my nights with warmth.<br><br>
-    I love you forever. 💕
-  </div>
-
-  <!-- Spotify Embed -->
-  <div class="spotify-embed" id="spotifyEmbed">
-    <iframe src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu"
-      width="100%" height="152" frameborder="0"
-      allow="autoplay; clipboard-write; encrypted-media;"></iframe>
-  </div>
-
-  <div class="bear-images">
-    <img src="bear.jpeg" alt="Bear Hug" />
-  </div>
-
-  <div style="margin-top:20px;">
-    <a href="sweetmemo.html" style="padding:12px 22px; background:#ff5c8d; color:white; border-radius:30px;
-      text-decoration:none; font-size:1.2em; font-weight:600;">
-      Sweet Memories 💞
-    </a>
-  </div>
-
-  <footer>Made with ❤️ by your karots, Loki</footer>
-</div>
-
-<!-- Tap to Play Overlay -->
-<div id="tapOverlay" style="
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(255,230,240,0.95); backdrop-filter:blur(8px);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  z-index:999; text-align:center; color:#d6336c; font-weight:700;
-">
-  <p style="font-size:2em; margin-bottom:20px;">Tap to Play ❤️</p>
-  <button onclick="startMusic()" style="
-    padding:14px 32px; font-size:1.3em; border:none;
-    background:#ff5c8d; color:white; border-radius:30px;
-    font-weight:700; cursor:pointer; box-shadow:0 4px 10px rgba(214,51,108,0.4);
-  ">
-    Play Music 🎶
-  </button>
-</div>
+  <!-- Auto-play Spotify workaround -->
+<audio id="bgMusic" autoplay loop>
+  <source src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu" type="audio/mpeg">
+</audio>
 
 <script>
-let isPlaying = false;
-let spotifyFrame;
+const audio = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
 
-function startMusic() {
-  spotifyFrame = document.querySelector("#spotifyEmbed iframe");
-  spotifyFrame.src = spotifyFrame.src + "?autoplay=1";
-  document.getElementById("tapOverlay").style.display = "none";
-  document.getElementById("musicBtn").textContent = "⏸️";
-  isPlaying = true;
-}
+// Force autoplay (muted first then unmute after load)
+window.addEventListener('load', () => {
+  audio.volume = 1;
+  audio.muted = true;
+  audio.play().then(() => {
+    setTimeout(() => {
+      audio.muted = false;
+    }, 500);
+  }).catch(() => {
+    // If blocked — show play icon so user taps
+    btn.innerText = "▶️";
+  });
+});
 
+// toggle button
 function toggleMusic() {
-  if (!spotifyFrame) spotifyFrame = document.querySelector("#spotifyEmbed iframe");
-
-  if (isPlaying) {
-    spotifyFrame.src = spotifyFrame.src;
-    document.getElementById("musicBtn").textContent = "▶️";
-    isPlaying = false;
+  if (audio.paused) {
+    audio.play();
+    btn.innerText = "⏸️";
   } else {
-    spotifyFrame.src = spotifyFrame.src + "?autoplay=1";
-    document.getElementById("musicBtn").textContent = "⏸️";
-    isPlaying = true;
+    audio.pause();
+    btn.innerText = "▶️";
   }
 }
 </script>
-</body>
-</html>
+
+
+  <!-- Background photo cards - more added -->
+  <div class="bg-photos" aria-hidden="true">
+    <div class="bg-photo-card" style="top: 10%; left: 5%; transform: rotate(-5deg);">
+      <img src="1.jpeg" alt="Shaine Photo 1" />
+      <p>💕</p>
+    </div>
+    <div class="bg-photo-card" style="top: 20%; left: 85%; transform: rotate(10deg);">
+      <img src="2.jpeg" alt="Shaine Photo 2" />
+      <p>😘</p>
+    </div>
+    <div class="bg-photo-card" style="top: 40%; left: 15%; transform: rotate(-15deg);">
+      <img src="3.jpeg" alt="Shaine Photo 3" />
+      <p>❤️</p>
+    </div>
+    <div class="bg-photo-card" style="top: 60%; left: 70%; transform: rotate(5deg);">
+      <img src="4.jpeg" alt="Shaine Photo 4" />
+      <p>🌸</p>
+    </div>
+    <div class="bg-photo-card" style="top: 75%; left: 30%; transform: rotate(-10deg);">
+      <img src="5.jpeg" alt="Shaine Photo 5" />
+      <p>🥰</p>
+    </div>
+    <div class="bg-photo-card" style="top: 85%; left: 50%; transform: rotate(12deg);">
+      <img src="6.jpeg" />
+      <p>💖</p>
+    </div>
+    <!-- New added photo cards -->
+    <div class="bg-photo-card" style="top: 5%; left: 40%; transform: rotate(8deg);">
+      <img src="7.jpeg" alt="Shaine Photo 7" />
+      <p>😍</p>
+    </div>
+    <div class="bg-photo-card" style="top: 30%; left: 90%; transform: rotate(-8deg);">
+      <img src="8.jpeg" />
+      <p>💋</p>
+    </div>
+    <div class="bg-photo-card" style="top: 50%; left: 2%; transform: rotate(15deg);">
+      <img src="9.jpeg" />
+      <p>🌹</p>
+    </div>
+  </div>
+
+  <!-- Floating hearts background -->
+  <div class="heart-bg" aria-hidden="true">
+    <div class="heart small red" style="left: 3%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="heart medium" style="left: 7%; animation-duration: 14s; animation-delay: 3s;"></div>
+    <div class="heart large red" style="left: 10%; animation-duration: 16s; animation-delay: 5s;"></div>
+    <div class="heart small" style="left: 14%; animation-duration: 11s; animation-delay: 1s;"></div>
+    <div class="heart medium red" style="left: 18%; animation-duration: 15s; animation-delay: 4s;"></div>
+    <div class="heart large" style="left: 21%; animation-duration: 13s; animation-delay: 6s;"></div>
+    <div class="heart small red" style="left: 25%; animation-duration: 14s; animation-delay: 2s;"></div>
+    <div class="heart medium" style="left: 29%; animation-duration: 17s; animation-delay: 7s;"></div>
+    <div class="heart medium red" style="left: 32%; animation-duration: 16s; animation-delay: 8s;"></div>
+    <div class="heart large" style="left: 37%; animation-duration: 13s; animation-delay: 9s;"></div>
+    <div class="heart small red" style="left: 41%; animation-duration: 14s; animation-delay: 5s;"></div>
+    <div class="heart medium" style="left: 46%; animation-duration: 12s; animation-delay: 3s;"></div>
+    <div class="heart large red" style="left: 50%; animation-duration: 15s; animation-delay: 0s;"></div>
+    <div class="heart small" style="left: 54%; animation-duration: 11s; animation-delay: 6s;"></div>
+    <div class="heart medium red" style="left: 58%; animation-duration: 14s; animation-delay: 4s;"></div>
+    <div class="heart large" style="left: 62%; animation-duration: 13s; animation-delay: 2s;"></div>
+    <div class="heart small red" style="left: 67%; animation-duration: 18s; animation-delay: 8s;"></div>
+    <div class="heart medium" style="left: 71%; animation-duration: 14s; animation-delay: 7s;"></div>
+    <div class="heart large red" style="left: 74%; animation-duration: 16s; animation-delay: 9s;"></div>
+    <div class="heart small" style="left: 78%; animation-duration: 15s; animation-delay: 1s;"></div>
+    <div class="heart medium red" style="left: 84%; animation-duration: 13s; animation-delay: 3s;"></div>
+    <div class="heart large" style="left: 88%; animation-duration: 12s; animation-delay: 0s;"></div>
+    <div class="heart small red" style="left: 92%; animation-duration: 14s; animation-delay: 5s;"></div>
+    <div class="heart medium" style="left: 96%; animation-duration: 15s; animation-delay: 6s;"></div>
+  </div>
+
+  <!-- Music control button -->
+  <button class="music-control" id="musicBtn" onclick="toggleMusic()">⏸️</button>
+
+  <div class="container" role="main">
+    <h1>Happy Birthday, <span class="heart-inline">Shai! 💖</span></h1>
+
+    <p class="quote">"You are my sunshine on the cloudiest days, my forever Cutie Patotie."</p>
+    <p class="quote">"Grow old with me: the best is yet to be."</p>
+    <p class="quote">"Every moment with you is a treasure I hold bae."</p>
+    <p class="quote">"Your smile lights up my world brighter than the stars."</p>
+    <p class="quote">"To love and be loved by you is the sweetest gift I could ever ask for."</p>
+
+    <div class="personal-message">
+      My bae, baby, and my everything,<br><br>
+      Today, is yourr <strong>First birthdayy with mee </strong>, My Wifeyy — my Shai, my heart’s delight.<br>  
+      You fill my days with laughter and my nights with warmth. As your karots, I promise to cherish you forever.<br><br>
+      I love you more than words can say. Happy Birthday, my Shai! 💕
+    </div>
+
+    <!-- Spotify embed - visible in the page -->
+    <div class="spotify-embed" id="spotifyEmbed">
+      <iframe src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu" width="100%" height="152" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <div class="bear-images" aria-label="Cute bears hugging and playing with hearts">
+      <img src="bear.jpeg" alt="Brown and white bears hugging with pink heart above" title="Bear Hug" />
+    </div>
+    <!-- ✅ Sweet Memories Button -->
+<div style="text-align:center; margin-top:20px; z-index:10; position:relative;">
+  <a href="sweetmemo.html"
+     style="padding:12px 22px; background:#ff5c8d; color:white; border-radius:30px;
+     text-decoration:none; font-size:1.2em; font-weight:600; box-shadow:0 4px 10px rgba(214,51,108,0.4);">
+     Sweet Memories 💞
+  </a>
+</div>
+
+    <footer>Made with ❤️ by your karots, Loki</footer>
+  </div>
+
+  <!-- Simple script for button toggle -->
+  <script>
+    function toggleMusic() {
+      var embed = document.getElementById('spotifyEmbed');
+      var btn = document.getElementById('musicBtn');
