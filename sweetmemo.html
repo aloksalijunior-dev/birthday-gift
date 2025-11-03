@@ -55,31 +55,9 @@
     clip-path: inherit;
   }
 
-  /* Mixed, slightly staggered square collage positions */
-  .card:nth-child(1)  { top: 0%;   left: 0%; }
-  .card:nth-child(2)  { top: 0%;   left: 25%; transform: rotate(-4deg); }
-  .card:nth-child(3)  { top: 0%;   left: 50%; }
-  .card:nth-child(4)  { top: 0%;   left: 75%; transform: rotate(5deg); }
-  .card:nth-child(5)  { top: 25%;  left: 5%; transform: rotate(3deg); }
-  .card:nth-child(6)  { top: 25%;  left: 30%; }
-  .card:nth-child(7)  { top: 25%;  left: 55%; transform: rotate(-5deg); }
-  .card:nth-child(8)  { top: 25%;  left: 80%; }
-  .card:nth-child(9)  { top: 50%;  left: 0%; transform: rotate(-3deg); }
-  .card:nth-child(10) { top: 50%;  left: 25%; }
-  .card:nth-child(11) { top: 50%;  left: 50%; transform: rotate(4deg); }
-  .card:nth-child(12) { top: 50%;  left: 75%; }
-  .card:nth-child(13) { top: 75%;  left: 5%; }
-  .card:nth-child(14) { top: 75%;  left: 30%; transform: rotate(-4deg); }
-  .card:nth-child(15) { top: 75%;  left: 55%; }
-  .card:nth-child(16) { top: 75%;  left: 80%; transform: rotate(2deg); }
-  .card:nth-child(17) { top: 100%; left: 10%; transform: rotate(5deg); }
-  .card:nth-child(18) { top: 100%; left: 35%; }
-  .card:nth-child(19) { top: 100%; left: 60%; transform: rotate(-3deg); }
-  .card:nth-child(20) { top: 100%; left: 85%; }
-
   .bg-heart {
     position: absolute;
-    font-size: 500px;
+    font-size: 480px;
     color: rgba(255, 20, 147, 0.08);
     top: 50%;
     left: 50%;
@@ -92,31 +70,38 @@
 <body>
 
   <h1>Our Sweet Memories</h1>
-
-  <div class="collage">
+  <div class="collage" id="collage">
     <div class="bg-heart">💖</div>
-    <div class="card"><img src="11.png" alt=""></div>
-    <div class="card"><img src="12.png" alt=""></div>
-    <div class="card"><img src="13.png" alt=""></div>
-    <div class="card"><img src="14.png" alt=""></div>
-    <div class="card"><img src="15.png" alt=""></div>
-    <div class="card"><img src="16.png" alt=""></div>
-    <div class="card"><img src="17.png" alt=""></div>
-    <div class="card"><img src="18.png" alt=""></div>
-    <div class="card"><img src="19.png" alt=""></div>
-    <div class="card"><img src="20.png" alt=""></div>
-    <div class="card"><img src="21.png" alt=""></div>
-    <div class="card"><img src="22.png" alt=""></div>
-    <div class="card"><img src="23.png" alt=""></div>
-    <div class="card"><img src="24.png" alt=""></div>
-    <div class="card"><img src="25.png" alt=""></div>
-    <div class="card"><img src="26.png" alt=""></div>
-    <div class="card"><img src="27.png" alt=""></div>
-    <div class="card"><img src="28.png" alt=""></div>
-    <div class="card"><img src="29.png" alt=""></div>
-    <div class="card"><img src="30.png" alt=""></div>
+    <!-- images will be placed here -->
   </div>
+
+  <script>
+    const collage = document.getElementById("collage");
+    const numPhotos = 20;
+    const radius = 230; // circle radius in px
+    const centerX = 300;
+    const centerY = 300;
+
+    for (let i = 0; i < numPhotos; i++) {
+      const angle = (i / numPhotos) * 2 * Math.PI;
+      const x = centerX + radius * Math.cos(angle) - 60;
+      const y = centerY + radius * Math.sin(angle) - 60;
+      const rotation = (Math.random() - 0.5) * 10;
+
+      const imgIndex = 11 + i; // from 11.png upward
+      const card = document.createElement("div");
+      card.className = "card";
+      card.style.left = `${x}px`;
+      card.style.top = `${y}px`;
+      card.style.transform = `rotate(${rotation}deg)`;
+
+      const img = document.createElement("img");
+      img.src = `${imgIndex}.png`;
+      img.alt = "";
+      card.appendChild(img);
+      collage.appendChild(card);
+    }
+  </script>
 
 </body>
 </html>
-
