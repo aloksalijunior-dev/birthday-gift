@@ -198,17 +198,17 @@
     transform: scale(1.08);
   }
 
-  /* Spotify embed styling */
-  .spotify-embed {
-    margin: 20px auto;
-    max-width: 300px;
+  /* Spotify player styling */
+  .spotify-player {
+    margin-top: 40px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
     /* Visible by default */
   }
 
-  /* Music control button */
+  /* Music control button 
   .music-control {
     position: fixed;
     bottom: 20px;
@@ -224,11 +224,11 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(214, 51, 108, 0.3);
     transition: background 0.3s ease;
-  }
+  } 
   .music-control:hover {
     background: #ff5c8d;
   }
-
+*/
   footer {
     margin-top: 60px;
     font-size: 1.3em;
@@ -355,10 +355,13 @@
     </div>
 
     <!-- Spotify embed - visible in the page -->
-    <div class="spotify-embed" id="spotifyEmbed">
-      <iframe src="https://open.spotify.com/embed/track/2Odgt6BSPpVVY9LT9yfnpu" width="100%" height="152" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-
+   <div class="spotify-player">
+    <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/48vIfHaK7by6x0T6ucpODL?utm_source=generator"
+            width="300" height="80" frameborder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+  </div>
     <div class="bear-images" aria-label="Cute bears hugging and playing with hearts">
       <img src="bear.jpeg" alt="Brown and white bears hugging with pink heart above" title="Bear Hug" />
     </div>
@@ -374,8 +377,8 @@
     <footer>Made with ❤️ by your karots, Loki</footer>
   </div>
 
-  <!-- Simple script for button toggle -->
+  <!-- Simple script for button toggle 
   <script>
     function toggleMusic() {
       var embed = document.getElementById('spotifyEmbed');
-      var btn = document.getElementById('musicBtn');
+      var btn = document.getElementById('musicBtn'); -->
