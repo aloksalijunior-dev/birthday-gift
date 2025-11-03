@@ -77,17 +77,36 @@
     z-index: -1;
     user-select: none;
   }
+
+  /* Spotify player styling */
+  .spotify-player {
+    margin-top: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
 </style>
 </head>
 <body>
 
   <h1>Our Sweet Memories</h1>
+
   <div class="collage" id="collage">
     <div class="bg-heart">💖</div>
+
     <!-- Center heart image -->
     <div class="card center-card">
-      <img src="your-center-image.png" alt="Center Image"> <!-- Replace with your image path -->
+      <img src="17.png" alt="Center Image"> <!-- Replace with your image path -->
     </div>
+  </div>
+
+  <!-- Spotify Player -->
+  <div class="spotify-player">
+    <iframe style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/48vIfHaK7by6x0T6ucpODL?utm_source=generator"
+            width="300" height="80" frameborder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
   </div>
 
   <script>
