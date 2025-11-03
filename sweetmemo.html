@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Sweet Memories</title>
 <style>
+  
   body {
     margin: 0;
     padding: 0;
@@ -77,6 +78,29 @@
     z-index: -1;
     user-select: none;
   }
+  .birthday-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.birthday-link a {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #ff5c8d;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2em;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(214,51,108,0.3);
+  transition: all 0.3s ease;
+}
+
+.birthday-link a:hover {
+  background: #ff82a9;
+  transform: scale(1.08);
+}
+
 
   /* Spotify player styling */
   .spotify-player {
@@ -97,15 +121,14 @@
     <!-- Center heart image -->
     <div class="card center-card">
       <img src="31.png" alt="Center Image">
-         <div style="text-align:center; margin-top:20px;">
-         <a href="index.html"
-         style="padding:12px 22px; background:#ff5c8d; color:white; border-radius:30px;
-         text-decoration:none; font-size:1.2em; font-weight:600; box-shadow:0 4px 10px rgba(214,51,108,0.4);">
-         Happy birthday babyy 💞
-      </a><!-- Replace with your image path -->
-    </div>
+   
       </div>
   </div>
+  <!-- Happy Birthday link under center image -->
+<div class="birthday-link">
+  <a href="index.html">🎀 Happy Birthday, Shai 💖</a>
+</div>
+
 
   <!-- Spotify Player -->
   <div class="spotify-player">
