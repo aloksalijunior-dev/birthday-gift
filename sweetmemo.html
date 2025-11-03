@@ -10,10 +10,12 @@
     padding: 0;
     background: #ffb6c1;
     font-family: Arial, sans-serif;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow: hidden;
   }
 
   h1 {
@@ -21,22 +23,21 @@
     font-size: 48px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin: 20px 0 40px;
   }
 
   .collage {
     position: relative;
     width: 600px;
-    height: 500px;
+    height: 520px;
   }
 
   .card {
     position: absolute;
     width: 120px;
-    height: 130px;
+    height: 120px;
     background: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     overflow: hidden;
     clip-path: polygon(50% 0%, 0% 25%, 0% 50%, 50% 100%, 100% 50%, 100% 25%);
     transition: transform 0.3s ease;
@@ -54,32 +55,32 @@
     clip-path: inherit;
   }
 
-  /* Slightly scattered heart-shaped placement */
-  .card:nth-child(1) { top: 10%; left: 42%; transform: rotate(-5deg); }
-  .card:nth-child(2) { top: 15%; left: 35%; transform: rotate(8deg); }
-  .card:nth-child(3) { top: 15%; left: 50%; transform: rotate(-10deg); }
-  .card:nth-child(4) { top: 22%; left: 28%; transform: rotate(5deg); }
-  .card:nth-child(5) { top: 22%; left: 57%; transform: rotate(-6deg); }
-  .card:nth-child(6) { top: 30%; left: 20%; transform: rotate(10deg); }
-  .card:nth-child(7) { top: 30%; left: 65%; transform: rotate(-8deg); }
-  .card:nth-child(8) { top: 38%; left: 25%; transform: rotate(7deg); }
-  .card:nth-child(9) { top: 38%; left: 60%; transform: rotate(-12deg); }
-  .card:nth-child(10) { top: 45%; left: 32%; transform: rotate(3deg); }
-  .card:nth-child(11) { top: 45%; left: 53%; transform: rotate(-5deg); }
-  .card:nth-child(12) { top: 52%; left: 40%; transform: rotate(0deg); }
-  .card:nth-child(13) { top: 55%; left: 47%; transform: rotate(5deg); }
-  .card:nth-child(14) { top: 60%; left: 35%; transform: rotate(-8deg); }
-  .card:nth-child(15) { top: 60%; left: 55%; transform: rotate(6deg); }
-  .card:nth-child(16) { top: 68%; left: 45%; transform: rotate(-5deg); }
-  .card:nth-child(17) { top: 72%; left: 40%; transform: rotate(4deg); }
-  .card:nth-child(18) { top: 72%; left: 50%; transform: rotate(-4deg); }
-  .card:nth-child(19) { top: 78%; left: 43%; transform: rotate(3deg); }
-  .card:nth-child(20) { top: 78%; left: 47%; transform: rotate(-2deg); }
+  /* Positions that form a structured heart with slight scattering and gaps */
+  .card:nth-child(1)  { top: 0%;   left: 35%; transform: rotate(-4deg); }
+  .card:nth-child(2)  { top: 0%;   left: 55%; transform: rotate(3deg); }
+  .card:nth-child(3)  { top: 10%;  left: 25%; transform: rotate(6deg); }
+  .card:nth-child(4)  { top: 10%;  left: 45%; transform: rotate(-5deg); }
+  .card:nth-child(5)  { top: 10%;  left: 65%; transform: rotate(4deg); }
+  .card:nth-child(6)  { top: 20%;  left: 18%; transform: rotate(-6deg); }
+  .card:nth-child(7)  { top: 20%;  left: 38%; transform: rotate(5deg); }
+  .card:nth-child(8)  { top: 20%;  left: 58%; transform: rotate(-3deg); }
+  .card:nth-child(9)  { top: 20%;  left: 78%; transform: rotate(6deg); }
+  .card:nth-child(10) { top: 32%;  left: 25%; transform: rotate(4deg); }
+  .card:nth-child(11) { top: 32%;  left: 45%; transform: rotate(-2deg); }
+  .card:nth-child(12) { top: 32%;  left: 65%; transform: rotate(5deg); }
+  .card:nth-child(13) { top: 44%;  left: 30%; transform: rotate(-4deg); }
+  .card:nth-child(14) { top: 44%;  left: 50%; transform: rotate(2deg); }
+  .card:nth-child(15) { top: 44%;  left: 70%; transform: rotate(-5deg); }
+  .card:nth-child(16) { top: 58%;  left: 38%; transform: rotate(5deg); }
+  .card:nth-child(17) { top: 58%;  left: 58%; transform: rotate(-4deg); }
+  .card:nth-child(18) { top: 70%;  left: 45%; transform: rotate(3deg); }
+  .card:nth-child(19) { top: 80%;  left: 40%; transform: rotate(-2deg); }
+  .card:nth-child(20) { top: 80%;  left: 50%; transform: rotate(4deg); }
 
   .bg-heart {
     position: absolute;
-    font-size: 400px;
-    color: rgba(255, 20, 147, 0.1);
+    font-size: 420px;
+    color: rgba(255, 20, 147, 0.08);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -106,7 +107,7 @@
     <div class="card"><img src="20.png" alt=""></div>
     <div class="card"><img src="21.png" alt=""></div>
     <div class="card"><img src="22.png" alt=""></div>
-    <div class="card"><img src="23.png" alt=""></div>
+    <div class="card"><img src="31.png" alt=""></div>
     <div class="card"><img src="24.png" alt=""></div>
     <div class="card"><img src="25.png" alt=""></div>
     <div class="card"><img src="26.png" alt=""></div>
